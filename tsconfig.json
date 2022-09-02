@@ -11,7 +11,6 @@
     "isolatedModules": true,
     "esModuleInterop": true,
     "lib": ["ESNext", "DOM"],
-    "types": ["./Core/live2dcubismcore"],
     "skipLibCheck": true
   },
   "include": ["packages/**/*.ts", "packages/**/*.d.ts", "packages/**/*.tsx", "packages/**/*.vue", "packages/**/*.js"],
