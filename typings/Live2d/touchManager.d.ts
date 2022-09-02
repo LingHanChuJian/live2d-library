@@ -1,0 +1,38 @@
+export declare class TouchManager {
+    private _startY;
+    private _startX;
+    private _lastX;
+    private _lastY;
+    private _lastX1;
+    private _lastY1;
+    private _lastX2;
+    private _lastY2;
+    private _lastTouchDistance;
+    private _deltaX;
+    private _deltaY;
+    private _scale;
+    private _touchSingle;
+    private _flipAvailable;
+    constructor();
+    getCenterX(): number;
+    getCenterY(): number;
+    getDeltaX(): number;
+    getDeltaY(): number;
+    getStartX(): number;
+    getStartY(): number;
+    getScale(): number;
+    getX(): number;
+    getY(): number;
+    getX1(): number;
+    getY1(): number;
+    getX2(): number;
+    getY2(): number;
+    isSingleTouch(): boolean;
+    isFlickAvailable(): boolean;
+    disableFlick(): void;
+    touchesBegan(deviceX: number, deviceY: number): void;
+    touchesMoved(deviceX: number, deviceY: number): void;
+    getFlickDistance(): number;
+    calculateDistance(x1: number, y1: number, x2: number, y2: number): number;
+    calculateMovingAmount(v1: number, v2: number): number;
+}

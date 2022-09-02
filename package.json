@@ -1,0 +1,30 @@
+{
+  "name": "live2d-library",
+  "version": "1.0.0",
+  "description": "live2d Web SDK 4.x",
+  "author": {
+    "name": "凌寒初见",
+    "url": "https://github.com/LingHanChuJian"
+  },
+  "type": "module",
+  "typings": "./typings/index.d.ts",
+  "main": "dist/live2d_library.cjs.min.js",
+  "module": "dist/live2d_library.es.min.js",
+  "unpkg": "dist/live2d_library.umd.min.js",
+  "scripts": {
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.183",
+    "@types/lodash-es": "^4.17.6",
+    "@types/node": "^18.7.6",
+    "lodash": "^4.17.21",
+    "lodash-es": "^4.17.21",
+    "lodash-unified": "^1.0.2",
+    "typescript": "^4.6.4",
+    "vite": "^3.0.7",
+    "vite-plugin-banner": "^0.3.0",
+    "vite-plugin-dts": "^1.4.1"
+  }
+}
