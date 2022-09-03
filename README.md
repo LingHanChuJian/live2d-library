@@ -248,6 +248,7 @@ interface Live2dOptions {
 }
 
 interface Live2dReturn {
+    emitter: Emitter<Events>
     nextModel: () => void
     nextRandomModel: () => void
     onResize: () => void
