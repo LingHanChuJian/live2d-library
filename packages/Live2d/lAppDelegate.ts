@@ -3,6 +3,16 @@ import { LAppView } from './lAppView'
 import { LAppDefine } from './lAppDefine'
 import { getFinishedMotion } from './lAppLive2dManager'
 
+let Live2dInitialize = false
+
+export const getLive2dInitialize = () => {
+    return Live2dInitialize
+}
+
+export const setLive2dInitialize = (value: boolean) => {
+    Live2dInitialize = value
+}
+
 export class LAppDelegate {
     private static instance: LAppDelegate | null = null
 
@@ -114,7 +124,7 @@ export class LAppDelegate {
     }
 
     private onClickEnded(e: MouseEvent) {
-        if (!getFinishedMotion()) { return }
+        if (!getFinishedMotion() || getLive2dInitialize()) { return }
 
         const rect = (e.target as Element).getBoundingClientRect()
         const posX = e.clientX - rect.left

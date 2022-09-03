@@ -19,6 +19,7 @@ import { InvalidMotionQueueEntryHandleValue } from '../Framework/src/motion/cubi
 import { LAppPal } from './lAppPal'
 import { LAppDefine } from './lAppDefine'
 import { ParamMapper } from './paramMapper'
+import { setLive2dInitialize } from './lAppDelegate'
 import { setFinishedMotion } from './lAppLive2dManager'
 import { LAppTextureManager } from './lAppTextureManager'
 import { LAppAudioFileHandler } from './lAppAudioFileHandler'
@@ -404,6 +405,8 @@ export class LAppModel extends CubismUserModel {
 
             this._state = LoadStep.WaitLoadTexture
         }
+
+        setLive2dInitialize(true)
     }
 
     private preLoadMotionGroup(group: string) {
