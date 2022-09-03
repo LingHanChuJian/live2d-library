@@ -517,10 +517,10 @@ export class LAppModel extends CubismUserModel {
         }
 
         const no = Math.floor(Math.random() * this._modelSetting!.getMotionCount(group))
-        return this.startMotion(group, no, priority, onFinishedMotionHandler)
+        return this.startAudio(group, no, priority, onFinishedMotionHandler)
     }
 
-    public startMotion(group: string, no: number, priority: number, onFinishedMotionHandler?: FinishedMotionCallback) {
+    public startAudio(group: string, no: number, priority: number, onFinishedMotionHandler?: FinishedMotionCallback) {
         if (priority === LAppDefine.PriorityForce) {
             this._motionManager.setReservePriority(priority)
         } else if (!this._motionManager.reserveMotion(priority)) {
@@ -530,6 +530,16 @@ export class LAppModel extends CubismUserModel {
             return InvalidMotionQueueEntryHandleValue
         }
 
+        const voice = this._modelSetting!.getMotionSoundFileName(group, no)
+        if (voice.localeCompare('') !== 0) {
+            this._audioFileHandler.loadAudioFile(this._dir + voice, () => this.startMotion(group, no, priority, onFinishedMotionHandler))
+            return
+        }
+
+        return this.startMotion(group, no, priority, onFinishedMotionHandler)
+    }
+
+    public startMotion(group: string, no: number, priority: number, onFinishedMotionHandler?: FinishedMotionCallback) {
         const motionFileName = this._modelSetting!.getMotionFileName(group, no)
 
         const name = `${group}_${no}`
@@ -556,12 +566,6 @@ export class LAppModel extends CubismUserModel {
                 })
         } else {
             if (onFinishedMotionHandler) { motion.setFinishedMotionHandler(onFinishedMotionHandler) }
-        }
-
-        const voice = this._modelSetting!.getMotionSoundFileName(group, no)
-
-        if (voice.localeCompare('') !== 0) {
-            this._audioFileHandler.loadAudioFile(this._dir + voice)
         }
 
         if (this._debugMode) {

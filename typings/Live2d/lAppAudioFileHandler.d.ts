@@ -11,7 +11,7 @@ export declare class LAppAudioFileHandler {
     private _audioSource;
     private _volume;
     constructor();
-    loadAudioFile(filePath: string): void;
+    loadAudioFile(filePath: string, onFinishedAudioHandler?: () => void): void;
     getVolume(): number;
     release(): void;
 }

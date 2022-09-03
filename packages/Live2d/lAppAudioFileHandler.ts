@@ -75,7 +75,7 @@ export class LAppAudioFileHandler {
         this._volume = 0.0
     }
 
-    public loadAudioFile(filePath: string) {
+    public loadAudioFile(filePath: string, onFinishedAudioHandler?: () => void) {
         (async () => {
             const arrayBuffer = await fetch(filePath).then(response => response.arrayBuffer())
 
@@ -103,6 +103,8 @@ export class LAppAudioFileHandler {
             this._audioWorkletNode.connect(this._audioContext.destination)
             this._audioSource.buffer = audioBuffer
             this._audioSource.start()
+
+            if (onFinishedAudioHandler) { onFinishedAudioHandler() }
         })()
     }
 

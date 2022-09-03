@@ -43,6 +43,7 @@ export declare class LAppModel extends CubismUserModel {
     private preLoadMotionGroup;
     update(): void;
     startRandomMotion(group: string, priority: number, onFinishedMotionHandler?: FinishedMotionCallback): any;
+    startAudio(group: string, no: number, priority: number, onFinishedMotionHandler?: FinishedMotionCallback): any;
     startMotion(group: string, no: number, priority: number, onFinishedMotionHandler?: FinishedMotionCallback): any;
     setExpression(expressionId: string): void;
     setRandomExpression(): void;
