@@ -10,7 +10,7 @@ export function getRootPath(...dir: string[]) {
     return resolve(process.cwd(), ...dir)
 }
 
-const info = `/**\n * name: ${name}\n * version: v${version}\n * description: ${description}\n * author: ${author.name}\n * Copyright 2021-present\n * Released under the MIT License.\n */`
+const info = `/**\n * name: ${name}\n * version: v${version}\n * description: ${description}\n * author: ${author}\n * Copyright 2021-present\n * Released under the MIT License.\n */`
 
 export default defineConfig({
     build: {
