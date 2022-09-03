@@ -11,6 +11,7 @@ export interface Live2dOptions {
 
 export interface Live2dReturn {
     nextModel: () => void
+    nextRandomModel: () => void
     onResize: () => void
     setScale: (scale: number) => void
     release: () => void
@@ -28,6 +29,7 @@ export default (options: Live2dOptions): Live2dReturn => {
 
     return {
         nextModel: lAppLive2DManager.nextModel.bind(lAppLive2DManager),
+        nextRandomModel: lAppLive2DManager.nextRandomModel.bind(lAppLive2DManager),
         onResize: lAppDelegate.onResize.bind(lAppDelegate),
         setScale: (scale: number) => {
             LAppDefine.ViewScale = scale

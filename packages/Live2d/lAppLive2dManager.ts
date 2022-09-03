@@ -78,6 +78,11 @@ export class LAppLive2DManager {
         this.loadModel((this._modelsIndex + 1) % LAppDefine.Models.length)
     }
 
+    // 加载随机模型
+    public nextRandomModel() {
+        this.loadModel(Math.floor(Math.random() * LAppDefine.Models.length))
+    }
+
     public onUpdate() {
         const { width, height } = this._canvas
 

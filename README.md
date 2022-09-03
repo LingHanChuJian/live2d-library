@@ -249,6 +249,7 @@ interface Live2dOptions {
 
 interface Live2dReturn {
     nextModel: () => void
+    nextRandomModel: () => void
     onResize: () => void
     setScale: (scale: number) => void
     release: () => void
