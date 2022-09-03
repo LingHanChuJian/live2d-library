@@ -1,7 +1,12 @@
+import type { Emitter } from 'mitt'
+import type { Events } from './Live2d/emitter'
+
+import { emitter } from './Live2d/emitter'
+import { LAppDefine } from './Live2d/lAppDefine'
 import { LAppDelegate } from './Live2d/lAppDelegate'
 import { LAppLive2DManager } from './Live2d/lAppLive2dManager'
 import { LAppAudioFileHandler } from './Live2d/lAppAudioFileHandler'
-import { LAppDefine } from './Live2d/lAppDefine'
+
 
 export interface Live2dOptions {
     canvas: HTMLCanvasElement
@@ -10,6 +15,7 @@ export interface Live2dOptions {
 }
 
 export interface Live2dReturn {
+    emitter: Emitter<Events>
     nextModel: () => void
     nextRandomModel: () => void
     onResize: () => void
@@ -28,6 +34,7 @@ export default (options: Live2dOptions): Live2dReturn => {
     const lAppDelegate = LAppDelegate.getInstance()
 
     return {
+        emitter,
         nextModel: lAppLive2DManager.nextModel.bind(lAppLive2DManager),
         nextRandomModel: lAppLive2DManager.nextRandomModel.bind(lAppLive2DManager),
         onResize: lAppDelegate.onResize.bind(lAppDelegate),

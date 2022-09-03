@@ -124,7 +124,8 @@ export class LAppDelegate {
     }
 
     private onClickEnded(e: MouseEvent) {
-        if (!getLive2dInitialize() || !getFinishedMotion()) { return }
+        if (!getLive2dInitialize()) { return }
+        if (!getFinishedMotion()) { return }
 
         const rect = (e.target as Element).getBoundingClientRect()
         const posX = e.clientX - rect.left

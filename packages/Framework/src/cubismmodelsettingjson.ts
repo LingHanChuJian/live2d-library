@@ -30,6 +30,7 @@ const Pose = 'Pose';
 const Expressions = 'Expressions';
 const Motions = 'Motions';
 const Mapper = 'Mapper';
+const Text = 'Text';
 
 const UserData = 'UserData';
 const Name = 'Name';
@@ -261,6 +262,19 @@ export class CubismModelSettingJson extends ICubismModelSetting {
       .at(FrequestNode.FrequestNode_HitAreas)
       .getValueByIndex(index)
       .getValueByString(Motion)
+      .getRawString();
+  }
+
+  /**
+   * 获取 HitArea 下的 Text
+   * @param index HitArea 列表下标
+   * @returns Motion 
+   */
+  public getHitAreaText(index: number): string {
+    return this._jsonValue
+      .at(FrequestNode.FrequestNode_HitAreas)
+      .getValueByIndex(index)
+      .getValueByString(Text)
       .getRawString();
   }
 

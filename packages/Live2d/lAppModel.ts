@@ -16,6 +16,7 @@ import { CubismDefaultParameterId } from '../Framework/src/cubismdefaultparamete
 import { CubismBreath, BreathParameterData } from '../Framework/src/effect/cubismbreath'
 import { InvalidMotionQueueEntryHandleValue } from '../Framework/src/motion/cubismmotionqueuemanager'
 
+import { emitter } from './emitter'
 import { LAppPal } from './lAppPal'
 import { LAppDefine } from './lAppDefine'
 import { ParamMapper } from './paramMapper'
@@ -618,6 +619,8 @@ export class LAppModel extends CubismUserModel {
             const drawId = this._modelSetting!.getHitAreaId(i)
             if (this.isHit(drawId, x, y)) {
                 setFinishedMotion(false)
+                const message = this._modelSetting!.getHitAreaText(i)
+                if (message) { emitter.emit('message', message) }
                 return this._modelSetting!.getHitAreaMotion(i)
             }
         }
