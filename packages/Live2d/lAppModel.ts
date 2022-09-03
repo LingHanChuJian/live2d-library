@@ -573,7 +573,7 @@ export class LAppModel extends CubismUserModel {
         }
 
         const motionText = this._modelSetting!.getMotionText(group, no)
-        if (motionText) { emitter.emit('message', motionText) }
+        if (motionText && motionText !== 'NullValue') { emitter.emit('message', motionText) }
 
         if (this._debugMode) {
             LAppPal.printMessage(`[APP] start motion: [${group}_${no}`)

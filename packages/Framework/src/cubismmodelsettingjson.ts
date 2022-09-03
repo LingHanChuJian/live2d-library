@@ -416,7 +416,7 @@ export class CubismModelSettingJson extends ICubismModelSetting {
       .getValueByString(groupName)
       .getValueByIndex(index)
       .getValueByString(Text)
-      .getRawString('');
+      .getRawString();
   }
 
   /**
