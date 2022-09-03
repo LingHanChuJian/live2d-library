@@ -1,3 +1,5 @@
+export declare const getLive2dInitialize: () => boolean;
+export declare const setLive2dInitialize: (value: boolean) => void;
 export declare class LAppDelegate {
     private static instance;
     static getInstance(): LAppDelegate;
