@@ -266,19 +266,6 @@ export class CubismModelSettingJson extends ICubismModelSetting {
   }
 
   /**
-   * 获取 HitArea 下的 Text
-   * @param index HitArea 列表下标
-   * @returns Motion 
-   */
-  public getHitAreaText(index: number): string {
-    return this._jsonValue
-      .at(FrequestNode.FrequestNode_HitAreas)
-      .getValueByIndex(index)
-      .getValueByString(Text)
-      .getRawString();
-  }
-
-  /**
    * 物理演算設定ファイルの名前を取得する
    * @return 物理演算設定ファイルの名前
    */
@@ -410,6 +397,25 @@ export class CubismModelSettingJson extends ICubismModelSetting {
       .getValueByString(groupName)
       .getValueByIndex(index)
       .getValueByString(FilePath)
+      .getRawString();
+  }
+
+  /**
+   * 获取 motion 下的 Text
+   * @param groupName motion group 名称
+   * @param index motion 下标
+   * @returns Text
+   */
+  public getMotionText(groupName: string, index: number): string {
+    if (!this.isExistMotionGroupName(groupName)) {
+      return '';
+    }
+
+    return this._jsonValue
+      .at(FrequestNode.FrequestNode_Motions)
+      .getValueByString(groupName)
+      .getValueByIndex(index)
+      .getValueByString(Text)
       .getRawString();
   }
 

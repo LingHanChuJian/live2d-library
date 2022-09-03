@@ -67,12 +67,6 @@ export abstract class ICubismModelSetting {
   public abstract getHitAreaMotion(index: number): string;
 
   /**
-   * 获取 HitArea 指定的 Text
-   * @param index HitArea 列表下标
-   */
-   public abstract getHitAreaText(index: number): string;
-
-  /**
    * 物理演算設定ファイルの名前を取得する
    * @return 物理演算設定ファイルの名前
    */
@@ -136,6 +130,13 @@ export abstract class ICubismModelSetting {
    * @return モーションファイルの名前
    */
   public abstract getMotionFileName(groupName: string, index: number): string;
+
+  /**
+   * 获取 motion text
+   * @param groupName motion group 名称
+   * @param index motion 下标
+   */
+  public abstract getMotionText(groupName: string, index: number): string;
 
   /**
    * モーションに対応するサウンドファイルの名前を取得する

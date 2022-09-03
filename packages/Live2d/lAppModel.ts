@@ -572,6 +572,9 @@ export class LAppModel extends CubismUserModel {
             if (onFinishedMotionHandler) { motion.setFinishedMotionHandler(onFinishedMotionHandler) }
         }
 
+        const motionText = this._modelSetting!.getMotionText(group, no)
+        if (motionText) { emitter.emit('message', motionText) }
+
         if (this._debugMode) {
             LAppPal.printMessage(`[APP] start motion: [${group}_${no}`)
         }
@@ -619,8 +622,6 @@ export class LAppModel extends CubismUserModel {
             const drawId = this._modelSetting!.getHitAreaId(i)
             if (this.isHit(drawId, x, y)) {
                 setFinishedMotion(false)
-                const message = this._modelSetting!.getHitAreaText(i)
-                if (message) { emitter.emit('message', message) }
                 return this._modelSetting!.getHitAreaMotion(i)
             }
         }
