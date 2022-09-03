@@ -149,6 +149,7 @@ Param_Mapper.json 参数映射文件实现, 文件中 Id 不用修改, 改 Value
 # 口形同步
 
 在 Model3.json 文件中 Motions 字段下对应动作, 添加 Sound 字段, 以及 Groups 字段
+Motions 还可以添加字幕 Text 通过 emitter.on('message', (text: string) => {}) 监听
 
 ```Json
 {
@@ -164,7 +165,8 @@ Param_Mapper.json 参数映射文件实现, 文件中 Id 不用修改, 改 Value
             "1": [
                 {
                     "File": "FileReferences_Motions_Id_favor1_1_0_File_0.json",
-                    "Sound": "FileReferences_Motions_1_0_Sound_0.mp3"
+                    "Sound": "FileReferences_Motions_1_0_Sound_0.mp3",
+                    "Text": "这是一段字幕"
                 },
                 {
                     "File": "FileReferences_Motions_Id_favor1_2_0_File_0.json",
