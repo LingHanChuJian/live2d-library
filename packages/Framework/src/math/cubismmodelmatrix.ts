@@ -8,6 +8,8 @@
 import { csmMap, iterator } from '../type/csmmap';
 import { CubismMatrix44 } from './cubismmatrix44';
 
+import { LAppDefine } from '../../../Live2d/lAppDefine';
+
 /**
  * モデル座標設定用の4x4行列
  *
@@ -27,6 +29,11 @@ export class CubismModelMatrix extends CubismMatrix44 {
     this._height = h !== undefined ? h : 0.0;
 
     this.setHeight(2.0);
+
+    const [x, y] = LAppDefine.CenterPosition;
+    if (typeof x === 'number' && typeof y === 'number') {
+      this.setCenterPosition(LAppDefine.ViewScale * w * x / 2, LAppDefine.ViewScale * h * y / 2);
+    }
   }
 
   /**

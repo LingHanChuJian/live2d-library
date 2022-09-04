@@ -29,4 +29,6 @@ export class LAppDefine {
 
     public static Canvas = document.createElement('canvas')
     public static Models: string[] = []
+
+    public static CenterPosition: number[] = []
 }
