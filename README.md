@@ -238,7 +238,7 @@ Motions 还可以添加字幕 Text 通过 emitter.on('message', (text: string) =
 npm install live2d-library
 ```
 
-使用 [demo](https://live2d-library-dome-mr5xh1ks4-linghanchujian.vercel.app/) 查看 demo 需要翻墙  [Github demo](https://github.com/LingHanChuJian/live2d-library-dome)
+使用 [demo](https://live2d-library-dome.vercel.app/) 查看 demo 需要翻墙  [Github demo](https://github.com/LingHanChuJian/live2d-library-dome)
 
 ```TypeScript
 import live2d from 'live2d-library'
