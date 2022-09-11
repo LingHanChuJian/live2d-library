@@ -80,7 +80,12 @@ export class LAppLive2DManager {
 
     // 加载随机模型
     public nextRandomModel() {
-        this.loadModel(Math.floor(Math.random() * LAppDefine.Models.length))
+        let random: number
+        while(true) {
+            random = Math.floor(Math.random() * LAppDefine.Models.length)
+            if (random !== this._modelsIndex) { break }
+        }
+        this.loadModel(random)
     }
 
     public onUpdate() {
