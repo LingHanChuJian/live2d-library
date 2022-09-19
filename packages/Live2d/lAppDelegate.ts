@@ -96,6 +96,9 @@ export class LAppDelegate {
     public onResize() {
         this._view.initialize()
         this._view.initializeSprite()
+
+        // https://creatorsforum.live2d.com/t/topic/778/5
+        this._gl.viewport(0, 0, this._canvas.width, this._canvas.height)
     }
 
     public release() {
