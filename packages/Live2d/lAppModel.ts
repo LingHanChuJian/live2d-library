@@ -339,7 +339,7 @@ export class LAppModel extends CubismUserModel {
         const layout: csmMap<string, number> = new csmMap<string, number>()
         this._modelSetting!.getLayoutMap(layout)
         this._modelMatrix.setupFromLayout(layout)
-        
+
         this._state = LoadStep.LoadMotion
         this.loadCubismMotion()
     }
