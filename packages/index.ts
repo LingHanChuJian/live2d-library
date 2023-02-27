@@ -12,7 +12,7 @@ export interface Live2dOptions {
     canvas: HTMLCanvasElement
     models: string[]
     scale?: number
-    centerPosition?: [number, number]
+    position?: [number, number]
 }
 
 export interface Live2dReturn {
@@ -25,12 +25,12 @@ export interface Live2dReturn {
 }
 
 export default (options: Live2dOptions): Live2dReturn => {
-    const { canvas, models, scale: viewScale, centerPosition } = options
+    const { canvas, models, scale: viewScale, position } = options
 
     LAppDefine.Canvas = canvas
     LAppDefine.Models = models
     LAppDefine.ViewScale = viewScale ?? 1
-    LAppDefine.CenterPosition = centerPosition ?? []
+    LAppDefine.Position = position ?? []
 
     const lAppLive2DManager = LAppLive2DManager.getInstance()
     const lAppDelegate = LAppDelegate.getInstance()

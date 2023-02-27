@@ -1,5 +1,5 @@
-import { CubismMatrix44 } from '../Framework/src/math/cubismmatrix44'
-import { CubismViewMatrix } from '../Framework/src/math/cubismviewmatrix'
+import { CubismMatrix44 } from '@Framework/math/cubismmatrix44'
+import { CubismViewMatrix } from '@Framework/math/cubismviewmatrix'
 
 import { LAppPal } from './lAppPal'
 import { LAppDefine } from './lAppDefine'
@@ -71,6 +71,12 @@ export class LAppView {
         }
 
         this._deviceToScreen?.translateRelative(-width * 0.5, -height * 0.5)
+
+        // translate
+        const [x, y] = LAppDefine.Position
+        if (x && y) {
+            this._deviceToScreen?.translateRelative(width * x * 0.5, height * y * 0.5)
+        }
 
         this._viewMatrix?.setMaxScale(LAppDefine.ViewMaxScale)
         this._viewMatrix?.setMinScale(LAppDefine.ViewMinScale)

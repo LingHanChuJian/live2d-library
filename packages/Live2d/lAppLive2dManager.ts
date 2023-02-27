@@ -1,6 +1,6 @@
-import { csmVector } from '../Framework/src/type/csmvector'
-import { CubismMatrix44 } from '../Framework/src/math/cubismmatrix44'
-import { ACubismMotion } from '../Framework/src/motion/acubismmotion'
+import { csmVector } from '@Framework/type/csmvector'
+import { CubismMatrix44 } from '@Framework/math/cubismmatrix44'
+import { ACubismMotion } from '@Framework/motion/acubismmotion'
 
 import { LAppPal } from './lAppPal'
 import { LAppModel } from './lAppModel'
@@ -154,8 +154,9 @@ export class LAppLive2DManager {
     }
 
     public finishedMotion(self: ACubismMotion) {
-        // LAppPal.printMessage('Motion Finished:')
-        // console.log(self)
+        if (LAppDefine.DebugLogEnable) {
+            LAppPal.printMessage('Motion Finished: ', self)
+        }
         setFinishedMotion(true)
     }
 

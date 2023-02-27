@@ -5,8 +5,8 @@ export class LAppPal {
 
     public static lastUpdate = Date.now()
 
-    public static printMessage(msg: string) {
-        console.log(msg)
+    public static printMessage(...msg: any[]) {
+        console.log(...msg)
     }
 
     public static getDeltaTime() {

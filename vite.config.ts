@@ -13,6 +13,12 @@ export function getRootPath(...dir: string[]) {
 const info = `/**\n * name: ${name}\n * version: v${version}\n * description: ${description}\n * author: ${author}\n * Copyright 2021-present\n * Released under the MIT License.\n */`
 
 export default defineConfig({
+    resolve: {
+        alias: {
+            '@Live2d': resolve(__dirname, 'packages/Live2d'),
+            '@Framework': resolve(__dirname, 'packages/Framework/src')
+        }
+    },
     build: {
         target: 'es2018',
         outDir: 'dist',

@@ -1,20 +1,20 @@
 import type { TextureInfo } from './lAppTextureManager'
-import type { FinishedMotionCallback } from '../Framework/src/motion/acubismmotion'
+import type { FinishedMotionCallback } from '@Framework/motion/acubismmotion'
 
-import { csmMap } from '../Framework/src/type/csmmap'
-import { csmVector } from '../Framework/src/type/csmvector'
-import { CubismIdHandle } from '../Framework/src/id/cubismid'
-import { CubismMotion } from '../framework/src/motion/cubismmotion'
-import { ACubismMotion } from '../Framework/src/motion/acubismmotion'
-import { CubismMatrix44 } from '../Framework/src/math/cubismmatrix44'
-import { CubismEyeBlink } from '../Framework/src/effect/cubismeyeblink'
-import { CubismUserModel } from '../Framework/src/model/cubismusermodel'
-import { ICubismModelSetting } from '../Framework/src/icubismmodelsetting'
-import { CubismModelSettingJson } from '../Framework/src/cubismmodelsettingjson'
-import { CubismFramework, Option } from '../Framework/src/live2dcubismframework'
-import { CubismDefaultParameterId } from '../Framework/src/cubismdefaultparameterid'
-import { CubismBreath, BreathParameterData } from '../Framework/src/effect/cubismbreath'
-import { InvalidMotionQueueEntryHandleValue } from '../Framework/src/motion/cubismmotionqueuemanager'
+import { csmMap } from '@Framework/type/csmmap'
+import { csmVector } from '@Framework/type/csmvector'
+import { CubismIdHandle } from '@Framework/id/cubismid'
+import { CubismMotion } from '@Framework/motion/cubismmotion'
+import { ACubismMotion } from '@Framework/motion/acubismmotion'
+import { CubismMatrix44 } from '@Framework/math/cubismmatrix44'
+import { CubismEyeBlink } from '@Framework/effect/cubismeyeblink'
+import { CubismUserModel } from '@Framework/model/cubismusermodel'
+import { CubismFramework, Option } from '@Framework/live2dcubismframework'
+import { CubismDefaultParameterId } from '@Framework/cubismdefaultparameterid'
+import { CubismBreath, BreathParameterData } from '@Framework/effect/cubismbreath'
+import { InvalidMotionQueueEntryHandleValue } from '@Framework/motion/cubismmotionqueuemanager'
+
+import { CubismModelSettingJsonExtension } from './FrameworkExtension/cubismmodelsettingjson'
 
 import { emitter } from './emitter'
 import { LAppPal } from './lAppPal'
@@ -64,7 +64,7 @@ export class LAppModel extends CubismUserModel {
     private _gl: WebGLRenderingContext
     private _frameBuffer: WebGLFramebuffer
 
-    private _modelSetting: ICubismModelSetting | null
+    private _modelSetting: CubismModelSettingJsonExtension | null
     
     private _motions: csmMap<string, ACubismMotion>
     private _expressions: csmMap<string, ACubismMotion | null>
@@ -128,13 +128,13 @@ export class LAppModel extends CubismUserModel {
         fetch(`${this._dir}${fileName}`)
             .then(response => response.arrayBuffer())
             .then(arrayBuffer => {
-                const setting = new CubismModelSettingJson(arrayBuffer, arrayBuffer.byteLength)
+                const setting = new CubismModelSettingJsonExtension(arrayBuffer, arrayBuffer.byteLength)
                 this._state = LoadStep.LoadModel
                 this.setupModel(setting)
             })
     }
 
-    private setupModel(setting: ICubismModelSetting) {
+    private setupModel(setting: CubismModelSettingJsonExtension) {
         this._updating = true
         this._initialized = false
 

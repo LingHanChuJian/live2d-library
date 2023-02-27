@@ -1,4 +1,4 @@
-import { csmVector } from '../Framework/src/type/csmvector'
+import { csmVector } from '@Framework/type/csmvector'
 
 export interface TextureInfo {
     id: WebGLTexture

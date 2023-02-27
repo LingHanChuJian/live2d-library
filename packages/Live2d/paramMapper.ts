@@ -1,7 +1,7 @@
-import { CubismIdHandle } from '../Framework/src/id/cubismid'
-import { CubismJson } from '../Framework/src/utils/cubismjson'
-import { CubismFramework } from '../Framework/src/live2dcubismframework'
-import { CubismDefaultParameterId } from '../Framework/src/cubismdefaultparameterid'
+import { CubismIdHandle } from '@Framework/id/cubismid'
+import { CubismJson } from '@Framework/utils/cubismjson'
+import { CubismFramework } from '@Framework/live2dcubismframework'
+import { CubismDefaultParameterId } from '@Framework/cubismdefaultparameterid'
 
 const Meta = 'Meta'
 const MapperCount = 'MapperCount'

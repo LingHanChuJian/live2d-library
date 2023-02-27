@@ -1,4 +1,4 @@
-import { LogLevel } from '../Framework/src/live2dcubismframework'
+import { LogLevel } from '@Framework/live2dcubismframework'
 
 export class LAppDefine {
     public static ViewScale = 1.0
@@ -30,5 +30,5 @@ export class LAppDefine {
     public static Canvas = document.createElement('canvas')
     public static Models: string[] = []
 
-    public static CenterPosition: number[] = []
+    public static Position: number[] = []
 }
