@@ -249,7 +249,7 @@ interface Live2dOptions {
     canvas: HTMLCanvasElement
     models: string[]
     scale?: number
-    centerPosition?: [number, number]
+    position?: [number, number]
 }
 
 interface Live2dReturn {
